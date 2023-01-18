@@ -25,6 +25,9 @@ const (
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
 	errUnmarshalCredentials = "cannot unmarshal template credentials as JSON"
+	// keys
+	keyApiToken = "api_token"
+	keyNetwork  = "network"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
@@ -62,11 +65,13 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			return ps, errors.Wrap(err, errUnmarshalCredentials)
 		}
 
-		// Set credentials in Terraform provider configuration.
-		/*ps.Configuration = map[string]any{
-			"username": creds["username"],
-			"password": creds["password"],
-		}*/
+		ps.Configuration = map[string]any{}
+		if v, ok := creds[keyApiToken]; ok {
+			ps.Configuration[keyApiToken] = v
+		}
+		if v, ok := creds[keyNetwork]; ok {
+			ps.Configuration[keyNetwork] = v
+		}
 		return ps, nil
 	}
 }

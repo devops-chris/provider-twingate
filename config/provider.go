@@ -8,9 +8,12 @@ import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
 
+	"github.com/upbound/upjet-provider-template/config/remote_network"
 	ujconfig "github.com/upbound/upjet/pkg/config"
 
-	"github.com/upbound/upjet-provider-template/config/null"
+	// "github.com/upbound/upjet-provider-template/config/null"
+	"github.com/devops-chris/provider-twingate/config/connector"
+	"github.com/devops-chris/provider-twingate/config/remote_network"
 )
 
 const (
@@ -34,7 +37,9 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		null.Configure,
+		// null.Configure,
+		remote_network.Configure,
+		connector.Configure,
 	} {
 		configure(pc)
 	}

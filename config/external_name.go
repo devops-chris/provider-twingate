@@ -9,6 +9,8 @@ import "github.com/upbound/upjet/pkg/config"
 // ExternalNameConfigs contains all external name configurations for this
 // provider.
 var ExternalNameConfigs = map[string]config.ExternalName{
+	"twingate_remote_network": config.NameAsIdentifier,
+	"twingate_connector":      config.TemplatedStringAsIdentifier("remote_network_id", "{{ .parameters.name }}:{{ .external_name }}"),
 	// Import requires using a randomly generated ID from provider: nl-2e21sda
 	"null_resource": config.IdentifierFromProvider,
 }
