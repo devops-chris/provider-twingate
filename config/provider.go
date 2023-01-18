@@ -8,7 +8,6 @@ import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
 
-	"github.com/upbound/upjet-provider-template/config/remote_network"
 	ujconfig "github.com/upbound/upjet/pkg/config"
 
 	// "github.com/upbound/upjet-provider-template/config/null"

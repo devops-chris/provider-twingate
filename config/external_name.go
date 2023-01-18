@@ -12,7 +12,7 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"twingate_remote_network": config.NameAsIdentifier,
 	"twingate_connector":      config.TemplatedStringAsIdentifier("remote_network_id", "{{ .parameters.name }}:{{ .external_name }}"),
 	// Import requires using a randomly generated ID from provider: nl-2e21sda
-	"null_resource": config.IdentifierFromProvider,
+	// "null_resource": config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the
