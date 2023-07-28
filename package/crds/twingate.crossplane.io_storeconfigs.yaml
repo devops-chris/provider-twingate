@@ -5,9 +5,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.3
   creationTimestamp: null
-  name: storeconfigs.template.crossplane.io
+  name: storeconfigs.twingate.crossplane.io
 spec:
-  group: template.crossplane.io
+  group: twingate.crossplane.io
   names:
     categories:
     - crossplane
